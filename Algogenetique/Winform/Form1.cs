@@ -51,14 +51,16 @@ namespace Winform
             generations.Add(generationAjoute);
             panelDessin.Refresh();
             Individu i = generations.Last().Individus[0];
-            labelMeilleurScore.Text = String.Format("S= {0}, ({1} ; {2}), ", i.GetScore(), i.Position.X, i.Position.Y);
+            labelMeilleurScore.Text = String.Format("Gen N°{0} S= {1}, ({2} ; {3}), ",generations.Count(),i.GetScore(), i.Position.X, i.Position.Y);
+
+            buttonResetGenerations.Enabled = true;
 
         }
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox chk = sender as CheckBox;
-            switch(Convert.ToInt32(chk.Tag))
+            switch (Convert.ToInt32(chk.Tag))
             {
                 case 0:
                     visiteur.DessinerTransport = chk.Checked;
@@ -72,5 +74,13 @@ namespace Winform
             }
             panelDessin.Refresh();
         }
+
+        private void buttonResetGenerations_Click(object sender, EventArgs e)
+        {
+
+            generations.Clear();
+            buttonResetGenerations.Enabled = false;
+        }
+
     }
 }

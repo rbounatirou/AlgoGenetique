@@ -58,6 +58,7 @@
             label10 = new Label();
             labelMeilleurScore = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            buttonResetGenerations = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDownTransport).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMaternelle).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPrimaire).BeginInit();
@@ -341,7 +342,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(935, 421);
+            label10.Location = new Point(846, 491);
             label10.Name = "label10";
             label10.Size = new Size(225, 25);
             label10.TabIndex = 13;
@@ -350,7 +351,7 @@
             // labelMeilleurScore
             // 
             labelMeilleurScore.AutoSize = true;
-            labelMeilleurScore.Location = new Point(1213, 421);
+            labelMeilleurScore.Location = new Point(1124, 491);
             labelMeilleurScore.Name = "labelMeilleurScore";
             labelMeilleurScore.Size = new Size(19, 25);
             labelMeilleurScore.TabIndex = 14;
@@ -362,11 +363,23 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
+            // buttonResetGenerations
+            // 
+            buttonResetGenerations.Enabled = false;
+            buttonResetGenerations.Location = new Point(846, 414);
+            buttonResetGenerations.Name = "buttonResetGenerations";
+            buttonResetGenerations.Size = new Size(939, 34);
+            buttonResetGenerations.TabIndex = 15;
+            buttonResetGenerations.Text = "Redemarrer generation";
+            buttonResetGenerations.UseVisualStyleBackColor = true;
+            buttonResetGenerations.Click += buttonResetGenerations_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1835, 944);
+            Controls.Add(buttonResetGenerations);
             Controls.Add(labelMeilleurScore);
             Controls.Add(label10);
             Controls.Add(button1);
@@ -426,5 +439,6 @@
         private NumericUpDown numericUpDownDst;
         private Label label11;
         private ContextMenuStrip contextMenuStrip1;
+        private Button buttonResetGenerations;
     }
 }
