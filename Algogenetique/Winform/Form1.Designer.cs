@@ -39,7 +39,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            generation = new GroupBox();
+            groupBoxScore = new GroupBox();
             label9 = new Label();
             numericUpDownRestaurant = new NumericUpDown();
             label7 = new Label();
@@ -51,7 +51,7 @@
             label4 = new Label();
             numericUpDownMutatePercent = new NumericUpDown();
             label8 = new Label();
-            è = new GroupBox();
+            groupBoxGeneration = new GroupBox();
             numericUpDownDst = new NumericUpDown();
             label11 = new Label();
             button1 = new Button();
@@ -59,17 +59,21 @@
             labelMeilleurScore = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
             buttonResetGenerations = new Button();
+            groupBoxSelectionGeneration = new GroupBox();
+            numericUpDownSelectionGeneration = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)numericUpDownTransport).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMaternelle).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPrimaire).BeginInit();
-            generation.SuspendLayout();
+            groupBoxScore.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownRestaurant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownUniversite).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownLycee).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownCollege).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMutatePercent).BeginInit();
-            è.SuspendLayout();
+            groupBoxGeneration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDst).BeginInit();
+            groupBoxSelectionGeneration.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownSelectionGeneration).BeginInit();
             SuspendLayout();
             // 
             // panelDessin
@@ -176,29 +180,29 @@
             label3.TabIndex = 9;
             label3.Text = "score ecole primaire";
             // 
-            // generation
+            // groupBoxScore
             // 
-            generation.Controls.Add(label9);
-            generation.Controls.Add(numericUpDownRestaurant);
-            generation.Controls.Add(label7);
-            generation.Controls.Add(numericUpDownUniversite);
-            generation.Controls.Add(label6);
-            generation.Controls.Add(numericUpDownLycee);
-            generation.Controls.Add(label5);
-            generation.Controls.Add(numericUpDownCollege);
-            generation.Controls.Add(label4);
-            generation.Controls.Add(label1);
-            generation.Controls.Add(label3);
-            generation.Controls.Add(numericUpDownTransport);
-            generation.Controls.Add(label2);
-            generation.Controls.Add(numericUpDownMaternelle);
-            generation.Controls.Add(numericUpDownPrimaire);
-            generation.Location = new Point(832, 12);
-            generation.Name = "generation";
-            generation.Size = new Size(434, 306);
-            generation.TabIndex = 10;
-            generation.TabStop = false;
-            generation.Text = "groupBox1";
+            groupBoxScore.Controls.Add(label9);
+            groupBoxScore.Controls.Add(numericUpDownRestaurant);
+            groupBoxScore.Controls.Add(label7);
+            groupBoxScore.Controls.Add(numericUpDownUniversite);
+            groupBoxScore.Controls.Add(label6);
+            groupBoxScore.Controls.Add(numericUpDownLycee);
+            groupBoxScore.Controls.Add(label5);
+            groupBoxScore.Controls.Add(numericUpDownCollege);
+            groupBoxScore.Controls.Add(label4);
+            groupBoxScore.Controls.Add(label1);
+            groupBoxScore.Controls.Add(label3);
+            groupBoxScore.Controls.Add(numericUpDownTransport);
+            groupBoxScore.Controls.Add(label2);
+            groupBoxScore.Controls.Add(numericUpDownMaternelle);
+            groupBoxScore.Controls.Add(numericUpDownPrimaire);
+            groupBoxScore.Location = new Point(832, 12);
+            groupBoxScore.Name = "groupBoxScore";
+            groupBoxScore.Size = new Size(434, 306);
+            groupBoxScore.TabIndex = 10;
+            groupBoxScore.TabStop = false;
+            groupBoxScore.Text = "Scores";
             // 
             // label9
             // 
@@ -297,18 +301,18 @@
             label8.TabIndex = 19;
             label8.Text = "Taux mutation pourcent";
             // 
-            // è
+            // groupBoxGeneration
             // 
-            è.Controls.Add(numericUpDownDst);
-            è.Controls.Add(label11);
-            è.Controls.Add(numericUpDownMutatePercent);
-            è.Controls.Add(label8);
-            è.Location = new Point(1272, 23);
-            è.Name = "è";
-            è.Size = new Size(513, 295);
-            è.TabIndex = 11;
-            è.TabStop = false;
-            è.Text = "groupBox1";
+            groupBoxGeneration.Controls.Add(numericUpDownDst);
+            groupBoxGeneration.Controls.Add(label11);
+            groupBoxGeneration.Controls.Add(numericUpDownMutatePercent);
+            groupBoxGeneration.Controls.Add(label8);
+            groupBoxGeneration.Location = new Point(1272, 23);
+            groupBoxGeneration.Name = "groupBoxGeneration";
+            groupBoxGeneration.Size = new Size(513, 295);
+            groupBoxGeneration.TabIndex = 11;
+            groupBoxGeneration.TabStop = false;
+            groupBoxGeneration.Text = "Parametre generation";
             // 
             // numericUpDownDst
             // 
@@ -342,16 +346,17 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(846, 491);
+            label10.Location = new Point(31, 42);
             label10.Name = "label10";
-            label10.Size = new Size(225, 25);
+            label10.Size = new Size(91, 25);
             label10.TabIndex = 13;
-            label10.Text = "Meilleur score derniere gen";
+            label10.Text = "Score gen";
+            label10.Click += label10_Click;
             // 
             // labelMeilleurScore
             // 
             labelMeilleurScore.AutoSize = true;
-            labelMeilleurScore.Location = new Point(1124, 491);
+            labelMeilleurScore.Location = new Point(309, 42);
             labelMeilleurScore.Name = "labelMeilleurScore";
             labelMeilleurScore.Size = new Size(19, 25);
             labelMeilleurScore.TabIndex = 14;
@@ -374,36 +379,61 @@
             buttonResetGenerations.UseVisualStyleBackColor = true;
             buttonResetGenerations.Click += buttonResetGenerations_Click;
             // 
+            // groupBoxSelectionGeneration
+            // 
+            groupBoxSelectionGeneration.Controls.Add(numericUpDownSelectionGeneration);
+            groupBoxSelectionGeneration.Controls.Add(labelMeilleurScore);
+            groupBoxSelectionGeneration.Controls.Add(label10);
+            groupBoxSelectionGeneration.Location = new Point(846, 484);
+            groupBoxSelectionGeneration.Name = "groupBoxSelectionGeneration";
+            groupBoxSelectionGeneration.Size = new Size(939, 193);
+            groupBoxSelectionGeneration.TabIndex = 16;
+            groupBoxSelectionGeneration.TabStop = false;
+            groupBoxSelectionGeneration.Text = "Selection generation";
+            // 
+            // numericUpDownSelectionGeneration
+            // 
+            numericUpDownSelectionGeneration.Enabled = false;
+            numericUpDownSelectionGeneration.Location = new Point(31, 86);
+            numericUpDownSelectionGeneration.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
+            numericUpDownSelectionGeneration.Name = "numericUpDownSelectionGeneration";
+            numericUpDownSelectionGeneration.Size = new Size(180, 31);
+            numericUpDownSelectionGeneration.TabIndex = 17;
+            numericUpDownSelectionGeneration.ValueChanged += numericUpDownSelectionGeneration_ValueChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1835, 944);
+            Controls.Add(groupBoxSelectionGeneration);
             Controls.Add(buttonResetGenerations);
-            Controls.Add(labelMeilleurScore);
-            Controls.Add(label10);
             Controls.Add(button1);
-            Controls.Add(è);
-            Controls.Add(generation);
+            Controls.Add(groupBoxGeneration);
+            Controls.Add(groupBoxScore);
             Controls.Add(checkBoxEcole);
             Controls.Add(checkBoxTransport);
             Controls.Add(checkBoxRestaurant);
             Controls.Add(panelDessin);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDownTransport).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMaternelle).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPrimaire).EndInit();
-            generation.ResumeLayout(false);
-            generation.PerformLayout();
+            groupBoxScore.ResumeLayout(false);
+            groupBoxScore.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownRestaurant).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownUniversite).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownLycee).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownCollege).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMutatePercent).EndInit();
-            è.ResumeLayout(false);
-            è.PerformLayout();
+            groupBoxGeneration.ResumeLayout(false);
+            groupBoxGeneration.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDst).EndInit();
+            groupBoxSelectionGeneration.ResumeLayout(false);
+            groupBoxSelectionGeneration.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownSelectionGeneration).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -420,7 +450,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private GroupBox generation;
+        private GroupBox groupBoxScore;
         private NumericUpDown numericUpDownCollege;
         private Label label4;
         private NumericUpDown numericUpDownRestaurant;
@@ -432,7 +462,7 @@
         private Label label8;
         private NumericUpDown numericUpDownMutatePercent;
         private Label label9;
-        private GroupBox è;
+        private GroupBox groupBoxGeneration;
         private Button button1;
         private Label label10;
         private Label labelMeilleurScore;
@@ -440,5 +470,7 @@
         private Label label11;
         private ContextMenuStrip contextMenuStrip1;
         private Button buttonResetGenerations;
+        private GroupBox groupBoxSelectionGeneration;
+        private NumericUpDown numericUpDownSelectionGeneration;
     }
 }

@@ -21,20 +21,23 @@ namespace Winform
         {
             visiteur.Dessiner(e.Graphics, ville);
             double[] scale = { panelDessin.Width / (double)ville.W, (double)panelDessin.Size.Height / ville.H };
-            if (generations.Count() > 0)
+            int gen = (int)numericUpDownSelectionGeneration.Value;
+            if (gen < generations.Count())
             {
-                for (int indice = 0; indice < generations.Last().Individus.Count(); indice++)
+                Generation observe = generations[gen];
+                for (int indice = 0; indice < observe.Individus.Count(); indice++)
                 {
-                    Individu i = generations.Last().Individus[indice];
+                    Individu i = observe.Individus[indice];
 
-                    e.Graphics.FillRectangle(new SolidBrush(indice != 0 ? Color.Black : Color.Violet), new Rectangle((int)(scale[0] * i.Position.X - 2),
+                    e.Graphics.FillRectangle(new SolidBrush(indice != 0 ? Color.Black : Color.Violet),
+                        new Rectangle((int)(scale[0] * i.Position.X - 2),
                         (int)(scale[1] * i.Position.Y - 2),
                         5, 5));
                     e.Graphics.FillEllipse(new SolidBrush(Color.FromArgb(10, Color.Red)), new Rectangle(
-                        (int)(scale[0] * (i.Position.X - (generations.Last().ProcheDistanceMax))),
-                        (int)(scale[1] * (i.Position.Y - (generations.Last().ProcheDistanceMax))),
-                        (int)(generations.Last().ProcheDistanceMax * 2 * scale[0]),
-                        (int)(generations.Last().ProcheDistanceMax * 2 * scale[1])));
+                        (int)(scale[0] * (i.Position.X - (observe.ProcheDistanceMax))),
+                        (int)(scale[1] * (i.Position.Y - (observe.ProcheDistanceMax))),
+                        (int)(observe.ProcheDistanceMax * 2 * scale[0]),
+                        (int)(observe.ProcheDistanceMax * 2 * scale[1])));
                 }
             }
         }
@@ -50,11 +53,31 @@ namespace Winform
                     (double)numericUpDownLycee.Value, (double)numericUpDownUniversite.Value, (double)numericUpDownRestaurant.Value); ;
             generations.Add(generationAjoute);
             panelDessin.Refresh();
-            Individu i = generations.Last().Individus[0];
-            labelMeilleurScore.Text = String.Format("Gen N°{0} S= {1}, ({2} ; {3}), ",generations.Count(),i.GetScore(), i.Position.X, i.Position.Y);
+
 
             buttonResetGenerations.Enabled = true;
 
+            numericUpDownSelectionGeneration.Maximum = generations.Count() - 1;
+            numericUpDownSelectionGeneration.Value = numericUpDownSelectionGeneration.Maximum;
+            MajIHM();
+
+        }
+
+        private void MajIHM()
+        {
+            numericUpDownSelectionGeneration.Enabled = generations.Count() >= 2;
+            groupBoxGeneration.Enabled = generations.Count() == 0;
+            groupBoxScore.Enabled = generations.Count() == 0;
+            int gen = (int)numericUpDownSelectionGeneration.Value;
+            if (generations.Count > 0)
+            {
+                Individu i = generations[gen].Individus[0];
+                labelMeilleurScore.Text = String.Format("Gen N°{0} S= {1}, ({2} ; {3}), ", gen + 1, i.GetScore(), i.Position.X, i.Position.Y);
+            }
+            else
+            {
+                labelMeilleurScore.Text = "-";
+            }
         }
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
@@ -77,10 +100,29 @@ namespace Winform
 
         private void buttonResetGenerations_Click(object sender, EventArgs e)
         {
-
+            groupBoxGeneration.Enabled = true;
+            groupBoxScore.Enabled = true;
             generations.Clear();
             buttonResetGenerations.Enabled = false;
+            panelDessin.Refresh();
+            numericUpDownSelectionGeneration.Value = 0;
+            numericUpDownSelectionGeneration.Maximum = 0;
+            MajIHM();
         }
 
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void numericUpDownSelectionGeneration_ValueChanged(object sender, EventArgs e)
+        {
+            MajIHM();
+            panelDessin.Refresh();
+        }
     }
 }

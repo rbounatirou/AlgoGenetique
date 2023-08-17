@@ -17,8 +17,8 @@
   "libraries": {
     "BibliVille/1.0.0": {
       "type": "project",
-      "path": "../BibliAquarium/BibliVille.csproj",
-      "msbuildProject": "../BibliAquarium/BibliVille.csproj"
+      "path": "../BibliVille/BibliVille.csproj",
+      "msbuildProject": "../BibliVille/BibliVille.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -61,6 +61,9 @@
           "projectReferences": {
             "C:\\Users\\rodol\\Desktop\\Algo genetique\\Algogenetique\\BibliAquarium\\BibliVille.csproj": {
               "projectPath": "C:\\Users\\rodol\\Desktop\\Algo genetique\\Algogenetique\\BibliAquarium\\BibliVille.csproj"
+            },
+            "C:\\Users\\rodol\\Desktop\\Algo genetique\\Algogenetique\\BibliVille\\BibliVille.csproj": {
+              "projectPath": "C:\\Users\\rodol\\Desktop\\Algo genetique\\Algogenetique\\BibliVille\\BibliVille.csproj"
             }
           }
         }
