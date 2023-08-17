@@ -29,6 +29,7 @@ namespace BibliVille
         public Individu(Coordonees _coordonees, Generation _from)
         {
             coordonees = _coordonees;
+            generationFrom = _from;
             score = 0;
 
 

@@ -30,6 +30,10 @@ namespace Winform
 
         }
 
+        public bool DessinerTransport { get => dessinerTransport; set => dessinerTransport = value; }
+        public bool DessinerRestaurant { get => dessinerRestaurant; set => dessinerRestaurant = value; }
+        public bool DessinerEcole { get => dessinerEcole; set => dessinerEcole = value; }
+
         public void Dessiner(Graphics g, Ville v)
         {
             graphics = g;

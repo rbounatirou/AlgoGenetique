@@ -82,32 +82,44 @@
             // checkBoxTransport
             // 
             checkBoxTransport.AutoSize = true;
+            checkBoxTransport.Checked = true;
+            checkBoxTransport.CheckState = CheckState.Checked;
             checkBoxTransport.Location = new Point(12, 833);
             checkBoxTransport.Name = "checkBoxTransport";
             checkBoxTransport.Size = new Size(112, 29);
             checkBoxTransport.TabIndex = 0;
+            checkBoxTransport.Tag = "0";
             checkBoxTransport.Text = "Transport";
             checkBoxTransport.UseVisualStyleBackColor = true;
+            checkBoxTransport.CheckedChanged += checkBox_CheckedChanged;
             // 
             // checkBoxRestaurant
             // 
             checkBoxRestaurant.AutoSize = true;
+            checkBoxRestaurant.Checked = true;
+            checkBoxRestaurant.CheckState = CheckState.Checked;
             checkBoxRestaurant.Location = new Point(139, 833);
             checkBoxRestaurant.Name = "checkBoxRestaurant";
             checkBoxRestaurant.Size = new Size(121, 29);
             checkBoxRestaurant.TabIndex = 1;
+            checkBoxRestaurant.Tag = "1";
             checkBoxRestaurant.Text = "Restaurant";
             checkBoxRestaurant.UseVisualStyleBackColor = true;
+            checkBoxRestaurant.CheckedChanged += checkBox_CheckedChanged;
             // 
             // checkBoxEcole
             // 
             checkBoxEcole.AutoSize = true;
+            checkBoxEcole.Checked = true;
+            checkBoxEcole.CheckState = CheckState.Checked;
             checkBoxEcole.Location = new Point(266, 833);
             checkBoxEcole.Name = "checkBoxEcole";
             checkBoxEcole.Size = new Size(79, 29);
             checkBoxEcole.TabIndex = 2;
+            checkBoxEcole.Tag = "2";
             checkBoxEcole.Text = "Ecole";
             checkBoxEcole.UseVisualStyleBackColor = true;
+            checkBoxEcole.CheckedChanged += checkBox_CheckedChanged;
             // 
             // numericUpDownTransport
             // 

@@ -54,5 +54,23 @@ namespace Winform
             labelMeilleurScore.Text = String.Format("S= {0}, ({1} ; {2}), ", i.GetScore(), i.Position.X, i.Position.Y);
 
         }
+
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox chk = sender as CheckBox;
+            switch(Convert.ToInt32(chk.Tag))
+            {
+                case 0:
+                    visiteur.DessinerTransport = chk.Checked;
+                    break;
+                case 1:
+                    visiteur.DessinerRestaurant = chk.Checked;
+                    break;
+                case 2:
+                    visiteur.DessinerEcole = chk.Checked;
+                    break;
+            }
+            panelDessin.Refresh();
+        }
     }
 }
