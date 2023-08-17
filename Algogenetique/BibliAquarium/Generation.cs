@@ -82,8 +82,7 @@ namespace BibliVille
                     // On fait muter le crossover avec une probabilité qu'on indique en parametre
                     crossOver.Mutate(mutationPourcent);
 
-                    Individu tmp = new Individu(crossOver, procheDistanceMax, scoreprocheTransport, scoreProcheEcoleMaternelle, scoreProcheEcolePrimaire,
-                        scoreProcheCollege, scoreProcheLycee, scoreProcheUniversite, scoreProcheRestaurant);
+                    Individu tmp = new Individu(crossOver,this);
                     individus.Add(tmp);
                 }
             } else
@@ -101,8 +100,7 @@ namespace BibliVille
             {
                 Coordonees tmpc = new Coordonees((ushort)Alea.GenererAleatoire(0, ville.W),
                     (ushort)Alea.GenererAleatoire(0, ville.H), ville);
-                Individu tmp = new Individu(tmpc, procheDistanceMax, scoreprocheTransport, scoreProcheEcoleMaternelle, scoreProcheEcolePrimaire,
-                    scoreProcheCollege, scoreProcheLycee, scoreProcheUniversite, scoreProcheRestaurant);
+                Individu tmp = new Individu(tmpc, this);
                 individus.Add(tmp);
             }
         }

@@ -15,6 +15,8 @@ namespace BibliVille
 
         public Coordonees Position { get => coordonees; }
 
+        public Generation GenerationFrom => generationFrom;
+
         private bool estProcheTransport;
         private bool estProcheEcoleMaternelle;
         private bool estProcheEcolePrimaire;
@@ -22,70 +24,54 @@ namespace BibliVille
         private bool estProcheLycee;
         private bool estProcheUniversite;
         private bool estProcheRestaurant;
-        private readonly double scoreprocheTransport;
-        private readonly double scoreProcheEcoleMaternelle;
-        private readonly double scoreProcheEcolePrimaire;
-        private readonly double scoreProcheCollege;
-        private readonly double scoreProcheLycee;
-        private readonly double scoreProcheUniversite;
-        private readonly double scoreProcheRestaurant;
-        private readonly double procheDistanceMax;
+        private readonly Generation generationFrom;
 
-        public Individu(Coordonees _coordonees, double _procheDistanceMax = 200, double _scoreProcheTransport = 0, double _scoreProcheEcoleMaternelle = 0,
-            double _scoreProcheEcolePrimaire = 0, double _scoreProcheCollege = 0, double _scoreProcheLycee = 0, double _scoreProcheUniversite = 0, double _scoreProcheRestaurant = 0)
+        public Individu(Coordonees _coordonees, Generation _from)
         {
             coordonees = _coordonees;
-            procheDistanceMax = _procheDistanceMax;
-            scoreprocheTransport = _scoreProcheTransport;
             score = 0;
-            scoreProcheEcoleMaternelle = _scoreProcheEcoleMaternelle;
-            scoreProcheEcolePrimaire = _scoreProcheEcolePrimaire;
-            scoreProcheCollege = _scoreProcheCollege;
-            scoreProcheLycee = _scoreProcheLycee;
-            scoreProcheUniversite = _scoreProcheUniversite;
-            scoreProcheRestaurant = _scoreProcheRestaurant;
-            scoreProcheCollege = _scoreProcheCollege;
+
 
         }
 
         public override void VisiterEcole(Ecole e)
         {
            
-            if (coordonees.GetDstFrom(e.Coordonees) <= procheDistanceMax)
+            if (coordonees.GetDstFrom(e.Coordonees) <= generationFrom.ProcheDistanceMax)
             {
                 switch (e.Type)
                 {
                     case EnumEcole.MATERNELLE:
                         if (!estProcheEcoleMaternelle) { 
-                            score += scoreProcheEcoleMaternelle;
+                            score += generationFrom.ScoreProcheEcoleMaternelle;
                             estProcheEcoleMaternelle = true;
                         }
                         break;
                     case EnumEcole.PRIMAIRE:
                         if (!estProcheEcolePrimaire)
                         {
-                            score += scoreProcheEcolePrimaire;
+                            score += generationFrom.ScoreProcheEcolePrimaire;
                             estProcheEcolePrimaire = true;
                         }
                         break;
                     case EnumEcole.COLLEGE:
                         if (!estProcheCollege)
                         {
-                            score += scoreProcheCollege;
+                            score += generationFrom.ScoreProcheCollege;
                             estProcheCollege = true;
                         }
                         break;
                     case EnumEcole.LYCEE:
                         if (!estProcheLycee)
                         {
-                            score += scoreProcheLycee;
+                            score += generationFrom.ScoreProcheLycee;
                             estProcheLycee = true;
                         }
                         break;
                     case EnumEcole.UNIVERSITE:
                         if (!estProcheUniversite)
                         {
-                            score += scoreProcheUniversite;
+                            score += generationFrom.ScoreProcheLycee;
                             estProcheUniversite = true;
                         }
                         break;
@@ -96,24 +82,24 @@ namespace BibliVille
 
         public override void VisiterRestaurant(Restaurant r)
         {
-            if (coordonees.GetDstFrom(r.Coordonees) <= procheDistanceMax)
+            if (coordonees.GetDstFrom(r.Coordonees) <= generationFrom.ProcheDistanceMax)
             {
                 if (!estProcheRestaurant)
                 {
                     estProcheRestaurant = true;
-                    score += scoreProcheRestaurant;
+                    score += generationFrom.ScoreProcheRestaurant;
                 }
             }
         }
 
         public override void VisiterTransport(Transport t)
         {
-            if (coordonees.GetDstFrom(t.Coordonees) <= procheDistanceMax)
+            if (coordonees.GetDstFrom(t.Coordonees) <= generationFrom.ProcheDistanceMax)
             {
                 if (!estProcheTransport)
                 {
                     estProcheTransport = true;
-                    score += scoreprocheTransport;
+                    score += generationFrom.ScoreProcheTransport;
                 }
             }
         }
