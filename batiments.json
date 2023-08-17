@@ -1,0 +1,27 @@
+{
+	"hopitaux":[
+		{"x": 800, "y": 400, "name": "Hopital confluent"},
+		{"x": 1800, "y": 2600, "name": "CHU"}
+	],
+	"ecoles":[
+		{"x":1200, "y": 600, "name": "Lycée georges clemenceau", "type":3},
+		{"x":1800, "y": 600, "name": "Ecole primaire francois mitterand", "type": 1},
+		{"x":1800, "y": 800, "name": "Maternelle du soleil", "type": 0},
+		{"x":1000, "y": 1000, "name": "College jules ferry", "type":2}
+	],
+	"restaurants":[
+		{"x":600,"y":1800,"name":"Le tigre d'asie","type":3},
+		{"x":1400,"y":2200,"name":"Pizzeria italienne","type":2},
+		{"x":1400,"y":2400,"name":"Tradition curry","type":0},
+		{"x":1800,"y":2400,"name":"Au boeuf bourguignon","type":1},
+		{"x":3200,"y":1800,"name":"Al dente","type":2},
+		{"x":3200,"y":3600,"name":"Le coq au vin","type":1},
+		{"x":2600,"y":600,"name":"Douceur lotus","type":3}
+	],
+	"piscines":[
+		{"x":3000,"y":800,"name":"Piscine petit bateau"},
+		{"x":400,"y":1200,"name":"Piscine leon marchand"},
+		{"x":2200,"y":2200,"name":"Piscine olympique laure manaudou"},
+		{"x":1600,"y":3600,"name":"Piscine florent manaudou"}
+	]
+}

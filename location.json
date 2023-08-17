@@ -1,0 +1,22 @@
+{
+    "tram" : [
+        {"x": 3200, "y": 600, "name": "Bouvardiere"},
+        {"x": 800, "y": 1000, "name": "Anatole France"},
+        {"x": 3000, "y": 1000, "name": "Bergereonnette"},
+        {"x": 1200, "y:" : 1200, "name": "Nouveau Bassin"},
+        {"x": 2600, "y:" : 1200, "name": "Baliniere"},
+        {"x": 3200, "y:" : 1400, "name": "Moliere"}, 
+        {"x": 1200, "y:" : 1400, "name": "Beausejour"},
+        {"x": 2400, "y:" : 1400, "name": "Albert Camus"},
+        {"x": 3600, "y:" : 1600, "name": "Jeanne"},
+        {"x": 1600, "y:" : 1800, "name": "Bouffay"},
+        {"x": 2000, "y:" : 1800, "name": "Placide"},
+        {"x": 2000, "y:" : 2200, "name": "Centre"},
+        {"x": 2800, "y:" : 2400, "name": "St-Michel"},
+        {"x": 3200, "y:" : 2400, "name": "Viarme"},
+        {"x": 2000, "y:" : 2600, "name": "Vitel"},
+        {"x": 2400, "y:" : 2600, "name": "Italie"},
+        {"x": 1800, "y:" : 3000, "name": "Constantinople"},
+        {"x": 1400, "y:" : 3200, "name": "Talensac"}
+    ]
+}

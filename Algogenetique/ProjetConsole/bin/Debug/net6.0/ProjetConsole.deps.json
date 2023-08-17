@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ProjetConsole/1.0.0": {
+        "dependencies": {
+          "BibliVille": "1.0.0"
+        },
+        "runtime": {
+          "ProjetConsole.dll": {}
+        }
+      },
+      "BibliVille/1.0.0": {
+        "runtime": {
+          "BibliVille.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ProjetConsole/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BibliVille/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
