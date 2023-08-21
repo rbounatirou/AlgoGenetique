@@ -1,4 +1,5 @@
 ﻿using BibliVille.Lieux;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BibliVille
 {
@@ -54,6 +55,16 @@ namespace BibliVille
             lieux.Add(new Ecole(1800, 600, this, "Ecole primaire francois mitterand", EnumEcole.PRIMAIRE));
             lieux.Add(new Ecole(1800, 800, this, "Maternelle du soleil", EnumEcole.MATERNELLE));
             lieux.Add(new Ecole(1000, 1000, this, "College Jules Ferry", EnumEcole.COLLEGE));
+        }
+
+        public void Clear()
+        {
+            lieux.Clear();
+        }
+
+        public void AddLieu(Lieu lieu)
+        {
+            lieux.Add(lieu);
         }
     }
 }

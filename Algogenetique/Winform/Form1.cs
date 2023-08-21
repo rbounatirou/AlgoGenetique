@@ -1,4 +1,5 @@
 using BibliVille;
+using BibliVille.Lieux;
 
 namespace Winform
 {
@@ -13,6 +14,8 @@ namespace Winform
             ville = new Ville(4000, 4000);
             visiteur = new VisiteurWinform(panelDessin, true, true, true, panelDessin.Width / (double)ville.W, (double)panelDessin.Size.Height / ville.H);
             generations = new List<Generation>();
+            numericUpDownAjoutLieuX.Maximum = ville.W;
+            numericUpDownAjoutLieuY.Maximum = ville.H;
         }
 
 
@@ -65,6 +68,7 @@ namespace Winform
 
         private void MajIHM()
         {
+            comboBoxType.Enabled = radioButtonEcole.Checked || radioButtonRestaurant.Checked;
             numericUpDownSelectionGeneration.Enabled = generations.Count() >= 2;
             groupBoxGeneration.Enabled = generations.Count() == 0;
             groupBoxScore.Enabled = generations.Count() == 0;
@@ -100,6 +104,7 @@ namespace Winform
 
         private void buttonResetGenerations_Click(object sender, EventArgs e)
         {
+
             groupBoxGeneration.Enabled = true;
             groupBoxScore.Enabled = true;
             generations.Clear();
@@ -111,18 +116,79 @@ namespace Winform
         }
 
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
 
         private void numericUpDownSelectionGeneration_ValueChanged(object sender, EventArgs e)
         {
             MajIHM();
             panelDessin.Refresh();
         }
+
+
+        private void loadComboEcole() => loadComboEnum<EnumEcole>();
+
+        private void loadComboRestaurant() => loadComboEnum<EnumRestaurant>();
+
+        private void radioButtonEcole_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton from = sender as RadioButton;
+            switch (Convert.ToInt32(from.Tag))
+            {
+                case 0:
+                    comboBoxType.Items.Clear();
+                    break;
+                case 1:
+                    loadComboRestaurant();
+                    break;
+                case 2:
+                    loadComboEcole();
+                    break;
+            }
+            MajIHM();
+        }
+
+        private void buttonAjouterLieu_Click(object sender, EventArgs e)
+        {
+            if (radioButtonEcole.Checked)
+            {
+                ville.AddLieu(new Ecole(new Coordonees((ushort)numericUpDownAjoutLieuX.Value,
+                    (ushort)numericUpDownAjoutLieuY.Value, ville), textBoxAjoutLieuNom.Text, (EnumEcole)comboBoxType.SelectedItem));
+            }
+            else if (radioButtonRestaurant.Checked)
+            {
+                ville.AddLieu(new Restaurant(new Coordonees((ushort)numericUpDownAjoutLieuX.Value,
+                    (ushort)numericUpDownAjoutLieuY.Value, ville), textBoxAjoutLieuNom.Text, (EnumRestaurant)comboBoxType.SelectedItem));
+            }
+            else if (radioButtonTransport.Checked)
+            {
+                ville.AddLieu(new Transport(new Coordonees((ushort)numericUpDownAjoutLieuX.Value,
+                    (ushort)numericUpDownAjoutLieuY.Value, ville), textBoxAjoutLieuNom.Text));
+            }
+            MajIHM();
+            panelDessin.Refresh();
+        }
+
+        private void buttonEffacerLieu_Click(object sender, EventArgs e)
+        {
+            ville.Clear();
+            generations.Clear();
+            numericUpDownSelectionGeneration.Value = 0;
+            numericUpDownSelectionGeneration.Maximum = 0;
+            MajIHM();
+            panelDessin.Refresh();
+            
+            
+        }
+
+        private void loadComboEnum<T>() where T : Enum
+        {
+            comboBoxType.Items.Clear();
+            List<T> types = Enum.GetValues(typeof(T)).Cast<T>().ToList();
+            foreach (T t in types)
+            {
+                comboBoxType.Items.Add(t);
+            }
+            comboBoxType.SelectedIndex = 0;
+        }
+
     }
 }

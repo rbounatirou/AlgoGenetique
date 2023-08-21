@@ -61,6 +61,19 @@
             buttonResetGenerations = new Button();
             groupBoxSelectionGeneration = new GroupBox();
             numericUpDownSelectionGeneration = new NumericUpDown();
+            groupBoxAjoutLieu = new GroupBox();
+            buttonAjouterLieu = new Button();
+            labelAjoutLieuNom = new Label();
+            textBoxAjoutLieuNom = new TextBox();
+            comboBoxType = new ComboBox();
+            labelAjoutLieuY = new Label();
+            labelAjoutLieuX = new Label();
+            numericUpDownAjoutLieuY = new NumericUpDown();
+            numericUpDownAjoutLieuX = new NumericUpDown();
+            radioButtonEcole = new RadioButton();
+            radioButtonRestaurant = new RadioButton();
+            radioButtonTransport = new RadioButton();
+            buttonEffacerLieu = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDownTransport).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMaternelle).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPrimaire).BeginInit();
@@ -74,6 +87,9 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDownDst).BeginInit();
             groupBoxSelectionGeneration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSelectionGeneration).BeginInit();
+            groupBoxAjoutLieu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAjoutLieuY).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAjoutLieuX).BeginInit();
             SuspendLayout();
             // 
             // panelDessin
@@ -351,7 +367,6 @@
             label10.Size = new Size(91, 25);
             label10.TabIndex = 13;
             label10.Text = "Score gen";
-            label10.Click += label10_Click;
             // 
             // labelMeilleurScore
             // 
@@ -401,11 +416,150 @@
             numericUpDownSelectionGeneration.TabIndex = 17;
             numericUpDownSelectionGeneration.ValueChanged += numericUpDownSelectionGeneration_ValueChanged;
             // 
+            // groupBoxAjoutLieu
+            // 
+            groupBoxAjoutLieu.Controls.Add(buttonEffacerLieu);
+            groupBoxAjoutLieu.Controls.Add(buttonAjouterLieu);
+            groupBoxAjoutLieu.Controls.Add(labelAjoutLieuNom);
+            groupBoxAjoutLieu.Controls.Add(textBoxAjoutLieuNom);
+            groupBoxAjoutLieu.Controls.Add(comboBoxType);
+            groupBoxAjoutLieu.Controls.Add(labelAjoutLieuY);
+            groupBoxAjoutLieu.Controls.Add(labelAjoutLieuX);
+            groupBoxAjoutLieu.Controls.Add(numericUpDownAjoutLieuY);
+            groupBoxAjoutLieu.Controls.Add(numericUpDownAjoutLieuX);
+            groupBoxAjoutLieu.Controls.Add(radioButtonEcole);
+            groupBoxAjoutLieu.Controls.Add(radioButtonRestaurant);
+            groupBoxAjoutLieu.Controls.Add(radioButtonTransport);
+            groupBoxAjoutLieu.Location = new Point(849, 697);
+            groupBoxAjoutLieu.Name = "groupBoxAjoutLieu";
+            groupBoxAjoutLieu.Size = new Size(936, 223);
+            groupBoxAjoutLieu.TabIndex = 17;
+            groupBoxAjoutLieu.TabStop = false;
+            groupBoxAjoutLieu.Text = "Ajouter Lieux";
+            // 
+            // buttonAjouterLieu
+            // 
+            buttonAjouterLieu.Location = new Point(475, 153);
+            buttonAjouterLieu.Name = "buttonAjouterLieu";
+            buttonAjouterLieu.Size = new Size(180, 34);
+            buttonAjouterLieu.TabIndex = 10;
+            buttonAjouterLieu.Text = "Ajout";
+            buttonAjouterLieu.UseVisualStyleBackColor = true;
+            buttonAjouterLieu.Click += buttonAjouterLieu_Click;
+            // 
+            // labelAjoutLieuNom
+            // 
+            labelAjoutLieuNom.AutoSize = true;
+            labelAjoutLieuNom.Location = new Point(28, 162);
+            labelAjoutLieuNom.Name = "labelAjoutLieuNom";
+            labelAjoutLieuNom.Size = new Size(52, 25);
+            labelAjoutLieuNom.TabIndex = 9;
+            labelAjoutLieuNom.Text = "Nom";
+            // 
+            // textBoxAjoutLieuNom
+            // 
+            textBoxAjoutLieuNom.Location = new Point(146, 159);
+            textBoxAjoutLieuNom.Name = "textBoxAjoutLieuNom";
+            textBoxAjoutLieuNom.Size = new Size(297, 31);
+            textBoxAjoutLieuNom.TabIndex = 8;
+            // 
+            // comboBoxType
+            // 
+            comboBoxType.Enabled = false;
+            comboBoxType.FormattingEnabled = true;
+            comboBoxType.Location = new Point(475, 50);
+            comboBoxType.Name = "comboBoxType";
+            comboBoxType.Size = new Size(182, 33);
+            comboBoxType.TabIndex = 7;
+            // 
+            // labelAjoutLieuY
+            // 
+            labelAjoutLieuY.AutoSize = true;
+            labelAjoutLieuY.Location = new Point(358, 107);
+            labelAjoutLieuY.Name = "labelAjoutLieuY";
+            labelAjoutLieuY.Size = new Size(22, 25);
+            labelAjoutLieuY.TabIndex = 6;
+            labelAjoutLieuY.Text = "Y";
+            // 
+            // labelAjoutLieuX
+            // 
+            labelAjoutLieuX.AutoSize = true;
+            labelAjoutLieuX.Location = new Point(28, 107);
+            labelAjoutLieuX.Name = "labelAjoutLieuX";
+            labelAjoutLieuX.Size = new Size(23, 25);
+            labelAjoutLieuX.TabIndex = 5;
+            labelAjoutLieuX.Text = "X";
+            // 
+            // numericUpDownAjoutLieuY
+            // 
+            numericUpDownAjoutLieuY.Location = new Point(475, 101);
+            numericUpDownAjoutLieuY.Name = "numericUpDownAjoutLieuY";
+            numericUpDownAjoutLieuY.Size = new Size(180, 31);
+            numericUpDownAjoutLieuY.TabIndex = 4;
+            // 
+            // numericUpDownAjoutLieuX
+            // 
+            numericUpDownAjoutLieuX.Location = new Point(145, 101);
+            numericUpDownAjoutLieuX.Name = "numericUpDownAjoutLieuX";
+            numericUpDownAjoutLieuX.Size = new Size(180, 31);
+            numericUpDownAjoutLieuX.TabIndex = 3;
+            // 
+            // radioButtonEcole
+            // 
+            radioButtonEcole.AutoSize = true;
+            radioButtonEcole.Location = new Point(271, 54);
+            radioButtonEcole.Name = "radioButtonEcole";
+            radioButtonEcole.Size = new Size(78, 29);
+            radioButtonEcole.TabIndex = 2;
+            radioButtonEcole.TabStop = true;
+            radioButtonEcole.Tag = "2";
+            radioButtonEcole.Text = "Ecole";
+            radioButtonEcole.UseVisualStyleBackColor = true;
+            radioButtonEcole.CheckedChanged += radioButtonEcole_CheckedChanged;
+            // 
+            // radioButtonRestaurant
+            // 
+            radioButtonRestaurant.AutoSize = true;
+            radioButtonRestaurant.Location = new Point(145, 54);
+            radioButtonRestaurant.Name = "radioButtonRestaurant";
+            radioButtonRestaurant.Size = new Size(120, 29);
+            radioButtonRestaurant.TabIndex = 1;
+            radioButtonRestaurant.TabStop = true;
+            radioButtonRestaurant.Tag = "1";
+            radioButtonRestaurant.Text = "Restaurant";
+            radioButtonRestaurant.UseVisualStyleBackColor = true;
+            radioButtonRestaurant.CheckedChanged += radioButtonEcole_CheckedChanged;
+            // 
+            // radioButtonTransport
+            // 
+            radioButtonTransport.AutoSize = true;
+            radioButtonTransport.Checked = true;
+            radioButtonTransport.Location = new Point(28, 54);
+            radioButtonTransport.Name = "radioButtonTransport";
+            radioButtonTransport.Size = new Size(111, 29);
+            radioButtonTransport.TabIndex = 0;
+            radioButtonTransport.TabStop = true;
+            radioButtonTransport.Tag = "0";
+            radioButtonTransport.Text = "Transport";
+            radioButtonTransport.UseVisualStyleBackColor = true;
+            radioButtonTransport.CheckedChanged += radioButtonEcole_CheckedChanged;
+            // 
+            // buttonEffacerLieu
+            // 
+            buttonEffacerLieu.Location = new Point(687, 50);
+            buttonEffacerLieu.Name = "buttonEffacerLieu";
+            buttonEffacerLieu.Size = new Size(203, 140);
+            buttonEffacerLieu.TabIndex = 11;
+            buttonEffacerLieu.Text = "Effacer Lieux";
+            buttonEffacerLieu.UseVisualStyleBackColor = true;
+            buttonEffacerLieu.Click += buttonEffacerLieu_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1835, 944);
+            Controls.Add(groupBoxAjoutLieu);
             Controls.Add(groupBoxSelectionGeneration);
             Controls.Add(buttonResetGenerations);
             Controls.Add(button1);
@@ -417,7 +571,6 @@
             Controls.Add(panelDessin);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDownTransport).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownMaternelle).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPrimaire).EndInit();
@@ -434,6 +587,10 @@
             groupBoxSelectionGeneration.ResumeLayout(false);
             groupBoxSelectionGeneration.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSelectionGeneration).EndInit();
+            groupBoxAjoutLieu.ResumeLayout(false);
+            groupBoxAjoutLieu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAjoutLieuY).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownAjoutLieuX).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -472,5 +629,18 @@
         private Button buttonResetGenerations;
         private GroupBox groupBoxSelectionGeneration;
         private NumericUpDown numericUpDownSelectionGeneration;
+        private GroupBox groupBoxAjoutLieu;
+        private Label labelAjoutLieuX;
+        private NumericUpDown numericUpDownAjoutLieuY;
+        private NumericUpDown numericUpDownAjoutLieuX;
+        private RadioButton radioButtonEcole;
+        private RadioButton radioButtonRestaurant;
+        private RadioButton radioButtonTransport;
+        private Label labelAjoutLieuY;
+        private ComboBox comboBoxType;
+        private TextBox textBoxAjoutLieuNom;
+        private Label labelAjoutLieuNom;
+        private Button buttonAjouterLieu;
+        private Button buttonEffacerLieu;
     }
 }
